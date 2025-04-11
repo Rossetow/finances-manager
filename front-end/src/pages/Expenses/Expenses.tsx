@@ -7,22 +7,22 @@ import mock = jest.mock;
 
 export default function Expenses() {
     const mockExpenses: ExpenseModel[] = [
-        {
-            id: "1",
-            titulo: "Compra no mercado",
-            descricao: "Itens da semana",
-            valor: 150.75,
-            data: new Date("2025-04-08"),
-            categoria: "Alimentação",
-        },
-        {
-            id: "2",
-            titulo: "Uber para o trabalho",
-            descricao: "Corrida de manhã",
-            valor: 35,
-            data: new Date("2025-04-07"),
-            categoria: "Transporte",
-        },
+        // {
+        //     id: "1",
+        //     titulo: "Compra no mercado",
+        //     descricao: "Itens da semana",
+        //     valor: 150.75,
+        //     data: new Date("2025-04-08"),
+        //     categoria: "Alimentação",
+        // },
+        // {
+        //     id: "2",
+        //     titulo: "Uber para o trabalho",
+        //     descricao: "Corrida de manhã",
+        //     valor: 35,
+        //     data: new Date("2025-04-07"),
+        //     categoria: "Transporte",
+        // },
     ];
     return (
         <div className="max-w-4xl mx-auto mt-8 px-4">

@@ -9,9 +9,6 @@ type DataProps = {
 export default function ChartCard({ data }: DataProps) {
     return (
         <div>
-            <header>
-                <h1>Gastos por categoria</h1>
-            </header>
             <div>
                 <PieChartComponent data={data} />
             </div>

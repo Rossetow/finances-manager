@@ -1,15 +1,32 @@
+import { PlusCircle } from "lucide-react";
+import "../../styles/Style.css";
+import {useState} from "react";
+import AddIncomeModal from "../AddIncomeModal/AddIncomeModal";
+import {IncomeModel} from "../../types/IncomeModel";
 
-import { PlusCircle } from "lucide-react"; // ou qualquer ícone SVG
-export default function AddIncome() {
+export default function AddExpense() {
+    const [showModal, setShowModal] = useState(false);
+
+    const handleSave = (expense: IncomeModel) => {
+        console.log("Nova receita:", expense);
+    };
     return (
-        <div className="flex items-center p-4 bg-white rounded-xl shadow border border-gray-200 w-fit hover:shadow-md cursor-pointer transition">
-            <div className="bg-green-100 rounded-lg p-2 mr-4">
-                <PlusCircle color={'green'} className="text-green-600 w-6 h-6" />
+        <div onClick={() => setShowModal(true)} className="col cards add-card d-flex flex-row align-items-center shadow-sm rounded-4">
+            <div className="icon-box d-flex justify-content-center align-items-center add-income me-4">
+                <PlusCircle size={20} color="green" />
             </div>
             <div>
-                <h4 className="text-sm font-semibold text-gray-800">Add income</h4>
-                <p className="text-sm text-gray-500">Create an income manually</p>
+                <h6 className="mb-1 text-dark fw-semibold">Adicionar recebimento</h6>
+                <p className="mb-0 text-muted small">Crie um recebimento manualmente</p>
             </div>
+            <div onClick={e => e.stopPropagation()}>
+                <AddIncomeModal
+                    show={showModal}
+                    onClose={() => setShowModal(false)}
+                    onSave={handleSave}
+                />
+            </div>
+
         </div>
     );
 }
