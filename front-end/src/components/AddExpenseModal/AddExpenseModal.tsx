@@ -34,7 +34,7 @@ export default function AddExpenseModal({show, onClose, onSave}: AddExpenseModal
             titulo,
             descricao,
             valor,
-            data: (new Date()).getDay() + "/" + (new Date()).getMonth() + "/" + (new Date()).getFullYear(),
+            data: Date.parse(data),
             categoria,
         };
         onSave(newExpense);

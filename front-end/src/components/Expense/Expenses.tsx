@@ -1,4 +1,4 @@
-import formatCurrency from "../../Utils/FormatCurrency";
+import formatCurrency from "../../utils/FormatCurrency";
 import "../../styles/Style.css"
 type ExpensesProps = {
     expenses: number;

@@ -1,4 +1,4 @@
-import formatCurrency from "../../Utils/FormatCurrency";
+import formatCurrency from "../../utils/FormatCurrency";
 
 type IncomeProps = {
     income: number;

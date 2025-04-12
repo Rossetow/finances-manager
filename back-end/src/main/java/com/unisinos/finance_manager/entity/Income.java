@@ -10,7 +10,7 @@ public class Income {
     
     @Id
     private String id;
-    private String data;
+    private long data;
     private double valor;
     private String descricao;
 
@@ -21,10 +21,10 @@ public class Income {
     public void setId(String id) {
         this.id = id;
     }
-    public String getData() {
+    public long getData() {
         return data;
     }
-    public void setData(String data) {
+    public void setData(long data) {
         this.data = data;
     }
     public double getValor() {

@@ -3,6 +3,6 @@ export type ExpenseModel = {
     titulo: string;
     descricao: string;
     valor: number;
-    data: string;
+    data: number;
     categoria: string;
 }

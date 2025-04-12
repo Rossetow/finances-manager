@@ -3,12 +3,16 @@ import "../../styles/Style.css";
 import {useState} from "react";
 import AddIncomeModal from "../AddIncomeModal/AddIncomeModal";
 import {IncomeModel} from "../../types/IncomeModel";
+import {ExpenseModel} from "../../types/Expense";
+import PostExpense from "../../services/PostExpense";
+import PostIncome from "../../services/PostIncome";
 
 export default function AddExpense() {
     const [showModal, setShowModal] = useState(false);
 
-    const handleSave = (expense: IncomeModel) => {
-        console.log("Nova receita:", expense);
+    const handleSave = async(income: IncomeModel) => {
+        console.log("Nova receita:", income);
+        await PostIncome(income)
     };
     return (
         <div onClick={() => setShowModal(true)} className="col cards add-card d-flex flex-row align-items-center shadow-sm rounded-4">

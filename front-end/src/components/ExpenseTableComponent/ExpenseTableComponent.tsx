@@ -4,12 +4,9 @@ import { useContext} from "react";
 import {ExpenseContext} from "../../context/ExpenseContext";
 
 type ExpenseProps = {
-    expensesProps: ExpenseModel[]
+    expenses: ExpenseModel[]
 }
-export default function ExpenseTableComponent({ expensesProps }: ExpenseProps) {
-
-    const { expenses }= useContext(ExpenseContext)
-
+export default function ExpenseTableComponent({ expenses }: ExpenseProps) {
     return(
         <div className="max-w-4xl mx-auto mt-8 px-4">
             <h2 className="text-2xl font-bold mb-4">Minhas Despesas</h2>

@@ -4,6 +4,7 @@ import axios from "axios";
 const API_URL = "http://localhost:8181/expenses";
 
 export default async function  PostExpense  (expense: ExpenseModel): Promise<ExpenseModel>  {
+    console.log(expense);
     const response = await axios.post(API_URL, expense);
     return response.data;
 };

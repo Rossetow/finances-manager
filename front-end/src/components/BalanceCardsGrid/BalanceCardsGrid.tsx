@@ -1,18 +1,27 @@
 import Income from "../Income/Income";
-import TotalIncome from "../../Utils/TotalIncome";
+import TotalIncome from "../../utils/TotalIncome";
 import Expenses from "../Expense/Expenses";
-import TotalExpenses from "../../Utils/TotalExpenses";
+import TotalExpenses from "../../utils/TotalExpenses";
 import Balance from "../Balance/Balance";
-import Budget from "../../Utils/Budget";
 import "../../styles/Style.css"
+import {ExpenseModel} from "../../types/Expense";
+import {IncomeModel} from "../../types/IncomeModel";
+import GetBalance from "../../utils/Balance";
 
-export default function BalanceCardsGrid() {
+type BalanceCardsProps = {
+    expenses: ExpenseModel[];
+    incomes: IncomeModel[];
+}
+
+export default function BalanceCardsGrid({ expenses, incomes}: BalanceCardsProps) {
+    console.log(incomes)
+    console.log(expenses)
     return (
         <div>
             <div className="row justify-content-between grid">
-                    <Balance balance={Budget()} />
-                    <Income income={TotalIncome()} />
-                    <Expenses expenses={TotalExpenses()} />
+                    <Balance balance={GetBalance(incomes, expenses)} />
+                    <Income income={TotalIncome(incomes)} />
+                    <Expenses expenses={TotalExpenses(expenses)} />
             </div>
         </div>
     )

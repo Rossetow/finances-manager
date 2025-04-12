@@ -3,8 +3,6 @@ package com.unisinos.finance_manager.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
-import java.util.Date;
-
 @RedisHash("Expenses")
 public class Expense {
     @Id
@@ -12,7 +10,7 @@ public class Expense {
     private String titulo;
     private String descricao;
     private double valor;
-    private String data;
+    private long data;
     private String categoria;
 
     public String getCategoria() {
@@ -23,11 +21,11 @@ public class Expense {
         this.categoria = categoria;
     }
 
-    public String getData() {
+    public long getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(long data) {
         this.data = data;
     }
 

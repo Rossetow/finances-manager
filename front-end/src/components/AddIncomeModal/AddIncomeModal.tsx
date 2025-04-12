@@ -9,6 +9,10 @@ type AddExpenseModalProps = {
     onSave: (expense: IncomeModel) => void;
 };
 
+const refreshIncomes = () => {
+    window.location.reload();
+}
+
 export default function AddIncomeModal({show, onClose, onSave}: AddExpenseModalProps) {
     const [descricao, setDescricao] = useState("");
     const [valor, setValor] = useState<number>(0);
@@ -25,11 +29,12 @@ export default function AddIncomeModal({show, onClose, onSave}: AddExpenseModalP
             id: uuidv4(),
             descricao,
             valor,
-            data: new Date(data),
+            data: Date.parse(data)
         };
 
         onSave(newIncome);
         resetForm();
+        refreshIncomes()
         onClose();
     };
 
@@ -54,7 +59,7 @@ export default function AddIncomeModal({show, onClose, onSave}: AddExpenseModalP
                     <Form.Group className="mb-3">
                         <Form.Label>Valor</Form.Label>
                         <Form.Control
-                            type="number"
+                            type="text"
                             value={valor}
                             onChange={(e) => setValor(Number(e.target.value))}
                         />

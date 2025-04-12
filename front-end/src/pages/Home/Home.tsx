@@ -7,73 +7,99 @@ import "./Home.css";
 import "../../styles/Style.css";
 import BalanceCardsGrid from "../../components/BalanceCardsGrid/BalanceCardsGrid";
 import AddExpenseAndIncomeGrid from "../../components/AddExpenseAndIncomeGrid/AddExpenseAndIncomeGrid";
-import {useContext, useEffect, useState} from "react";
-import AddExpenseModal from "../../components/AddExpenseModal/AddExpenseModal";
-
-import { ExpenseContext } from "../../context/ExpenseContext";
+import {useEffect, useState} from "react";
 import GetExpenses from "../../services/GetExpenses";
 import GetFinanceData from "../../services/GetFinanceData";
+import {IncomeModel} from "../../types/IncomeModel";
+import GetIncomes from "../../services/GetIncomes";
+import Header from "../../components/Header/Header";
+import FilterExpensesByDate from "../../utils/FilterExpensesByDate";
+import FilterIncomesByDate from "../../utils/FilterIncomesByDate";
 
 export default function Home() {
-    const financeMockData: FinanceData[] = [
-        { id: 1, label: "Alimentação", value: 850.75, percentage: 40.16 },
-        { id: 2, label: "Transporte", value: 320.4, percentage: 15.13 },
-        { id: 3, label: "Lazer", value: 210.9, percentage: 9.96 },
-        { id: 4, label: "Educação", value: 500.0, percentage: 23.61 },
-        { id: 5, label: "Saúde", value: 145.5, percentage: 6.87 },
-        { id: 6, label: "Outros", value: 90.0, percentage: 4.25 },
-        { id: 7, label: "Restante do orçamento", value: 2882.45}
-    ];
 
+    const [dateFilter, setDateFilter] = useState<number>(30); // em dias
 
-    const { expenses, setExpenses } = useContext(ExpenseContext)
+    const [financeData, setFinanceData] = useState<FinanceData[]>([])
+
+    const [allIncomes, setAllIncomes] = useState<IncomeModel[]>([]);
+    const [filteredIncomes, setFilteredIncomes] = useState<IncomeModel[]>([]);
+
+    const [allExpenses, setAllExpenses] = useState<ExpenseModel[]>([]);
+    const [filteredExpenses, setFilteredExpenses] = useState<ExpenseModel[]>([]);
+
+    const [incomes, setIncomes] = useState<IncomeModel[]>([]);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         initData()
     }, []);
 
-    async function initData (){
-        const initExpenses = await GetExpenses()
-        setExpenses(initExpenses)
-        initGraph(initExpenses)
+    async function initData() {
+        const [initExpenses, initIncomes] = await Promise.all([
+            GetExpenses(),
+            GetIncomes()
+        ]);
+
+        setAllExpenses(initExpenses);
+        var filteredExpensesInit = FilterExpensesByDate(initExpenses, dateFilter);
+
+        setFilteredExpenses(filteredExpensesInit);
+
+        setAllIncomes(initIncomes);
+
+        var filteredIncomesInit = FilterIncomesByDate(initIncomes, dateFilter);
+        setFilteredIncomes(filteredIncomesInit);
+
+        setIncomes(initIncomes);
+
+        initGraph(filteredExpenses, filteredIncomes);
     }
-    const [financeData, setFinanceData] = useState<FinanceData[]>([]);
 
-    const budget = 5000;
-
-    function initGraph(initExpenses: ExpenseModel[]) {
-        const initFinanceData = GetFinanceData(initExpenses, budget)
+    function initGraph(initExpenses: ExpenseModel[], initIncomes: IncomeModel[]) {
+        const initFinanceData = GetFinanceData(initExpenses, initIncomes)
         setFinanceData(initFinanceData)
     }
 
-    const [showModal, setShowModal] = useState(false);
+    const dateRangeToDays: Record<string, number> = {
+        this_month: 30,
+        last_month: 60,
+        this_year: 365,
+        last_12_months: 365,
+        custom: 0
+    };
 
-    const handleSave = (expense: ExpenseModel) => {
-        console.log("Despesa salva:", expense);
+    const handleDateFilterChange = (filterKey: string) => {
+        const days = dateRangeToDays[filterKey] || 0;
+
+        const filteredExpenses = FilterExpensesByDate(allExpenses, days);
+        setFilteredExpenses(filteredExpenses);
+
+        const filteredIncomes = FilterIncomesByDate(allIncomes, days);
+        setFilteredIncomes(filteredIncomes);
     };
 
     return (
-        <div className="container">
-            <AddExpenseModal
-                show={showModal}
-                onClose={() => setShowModal(false)}
-                onSave={handleSave}
-            />
-            <div className="row mt-5">
-                <BalanceCardsGrid />
-            </div>
-            <div className="row mt-5" >
-                    <AddExpenseAndIncomeGrid />
-            </div>
-            <div className="row grid mt-5">
-                <div className="col">
-                    <ChartCard data={financeData} />
-                </div>
-                <div className="col">
-                        <ExpenseTableComponent expensesProps={expenses} />
-                </div>
-            </div>
+        <div>
+            <Header onDateFilterChange={handleDateFilterChange} />
 
+            <div className="container">
+                <div className="row mt-5">
+                    <BalanceCardsGrid expenses={filteredExpenses} incomes={filteredIncomes}/>
+                </div>
+                <div className="row mt-5" >
+                    <AddExpenseAndIncomeGrid />
+                </div>
+                <div className="row grid mt-5">
+                    <div className="col">
+                        <ChartCard expenses={filteredExpenses} incomes={filteredIncomes} />
+                    </div>
+                    <div className="col">
+                        <ExpenseTableComponent expenses={filteredExpenses} />
+                    </div>
+                </div>
+
+            </div>
         </div>
     );
 }
