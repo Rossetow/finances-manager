@@ -1,14 +1,13 @@
-import { PieChart } from '@mui/x-charts/PieChart';
+import {PieChart} from '@mui/x-charts/PieChart';
 import {FinanceData} from "../../types/FinanceData";
 import React from "react";
-import {HighlightItemData} from "@mui/x-charts";
 
 type DataProps = {
     data: FinanceData[];
 }
 
-export default function PieChartComponent({ data }: DataProps) {
-    const colors  =[
+export default function PieChartComponent({data}: DataProps) {
+    const colors = [
         "#6366F1", // Indigo (gastos principais)
         "#60A5FA", // Azul claro
         "#34D399", // Verde menta
@@ -21,10 +20,10 @@ export default function PieChartComponent({ data }: DataProps) {
         "#93C5FD", // Azul bebê
     ];
 
-    return(
+    return (
         <div>
             <PieChart
-                colors = {colors}
+                colors={colors}
                 series={[
                     {
                         innerRadius: 50,
@@ -35,14 +34,14 @@ export default function PieChartComponent({ data }: DataProps) {
 
                         data,
 
-                        highlightScope: { fade: 'global', highlight: 'item' },
-                        faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
+                        highlightScope: {fade: 'global', highlight: 'item'},
+                        faded: {innerRadius: 30, additionalRadius: -30, color: 'gray'},
                     },
                 ]}
 
                 width={550}
                 height={400}
-                margin={{ top: 10, bottom: 10, left: 10, right:250 }}
+                margin={{top: 10, bottom: 10, left: 10, right: 250}}
 
                 slotProps={{
                     legend: {

@@ -3,9 +3,9 @@ import {FinanceData} from "../types/FinanceData";
 import {IncomeModel} from "../types/IncomeModel";
 import TotalIncome from "../utils/TotalIncome";
 
-export default function GetFinanceData(expenses: ExpenseModel[], incomes:IncomeModel[]) {
+export default function GetFinanceData(expenses: ExpenseModel[], incomes: IncomeModel[]) {
 
-    var categories:string[] = []
+    var categories: string[] = []
 
     console.log(expenses)
     console.log(incomes)
@@ -18,13 +18,13 @@ export default function GetFinanceData(expenses: ExpenseModel[], incomes:IncomeM
         }
     });
 
-    var expenseByCategory:Map<String, number> = new Map()
+    var expenseByCategory: Map<String, number> = new Map()
 
     expenses.forEach((expense: ExpenseModel) => {
         if (!expense) return;
 
-        if(!expenseByCategory.has(expense.categoria)) {
-            expenseByCategory.set(expense.categoria, expense.valor )
+        if (!expenseByCategory.has(expense.categoria)) {
+            expenseByCategory.set(expense.categoria, expense.valor)
         } else {
             expenseByCategory.set(expense.categoria, expenseByCategory.get(expense.categoria)! + expense.valor)
         }
@@ -45,7 +45,7 @@ export default function GetFinanceData(expenses: ExpenseModel[], incomes:IncomeM
         })
         totalExpense += value
     })
-    if (budget - totalExpense > 0){
+    if (budget - totalExpense > 0) {
         financeData.push({
             id: financeData.length + 1,
             label: "restante do orçamento",

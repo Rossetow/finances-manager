@@ -13,8 +13,8 @@ export default function AddExpenseAndIncomeGrid() {
                         Gastos por categoria
                     </h1>
                 </div>
-                <AddIncome />
-                <AddExpense />
+                <AddIncome/>
+                <AddExpense/>
             </div>
 
         </div>

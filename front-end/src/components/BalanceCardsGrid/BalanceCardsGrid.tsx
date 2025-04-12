@@ -13,15 +13,15 @@ type BalanceCardsProps = {
     incomes: IncomeModel[];
 }
 
-export default function BalanceCardsGrid({ expenses, incomes}: BalanceCardsProps) {
+export default function BalanceCardsGrid({expenses, incomes}: BalanceCardsProps) {
     console.log(incomes)
     console.log(expenses)
     return (
         <div>
             <div className="row justify-content-between grid">
-                    <Balance balance={GetBalance(incomes, expenses)} />
-                    <Income income={TotalIncome(incomes)} />
-                    <Expenses expenses={TotalExpenses(expenses)} />
+                <Balance balance={GetBalance(incomes, expenses)}/>
+                <Income income={TotalIncome(incomes)}/>
+                <Expenses expenses={TotalExpenses(expenses)}/>
             </div>
         </div>
     )

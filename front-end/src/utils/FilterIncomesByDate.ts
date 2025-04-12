@@ -3,7 +3,7 @@ import {ExpenseModel} from "../types/Expense";
 
 export default function FilterIncomesByDate(incomes: IncomeModel[], days: number) {
     if (days === 0) return incomes; // sem filtro
-    if(incomes.length === 0) return [];
+    if (incomes.length === 0) return [];
 
     const now = new Date();
     const cutoffDate = new Date(now);

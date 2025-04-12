@@ -1,6 +1,6 @@
 export type FinanceData = {
-  id: number;
-  label: string;
-  value: number;
-  percentage?: number;
+    id: number;
+    label: string;
+    value: number;
+    percentage?: number;
 };

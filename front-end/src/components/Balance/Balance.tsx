@@ -5,7 +5,7 @@ import "../../styles/Style.css"
 type BalanceProps = {
     balance: number;
 }
-export default function Balance({ balance }: BalanceProps) {
+export default function Balance({balance}: BalanceProps) {
     const textColor = balance < 0 ? "text-danger" : "text-primary";
 
     return (

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {ExpenseModel} from "../../types/Expense";
 import formatCurrency from "../../utils/FormatCurrency";
 import Table from 'react-bootstrap/Table';
@@ -10,7 +10,7 @@ interface ExpensesProps {
 const formatDate = (date: Date) =>
     new Intl.DateTimeFormat("pt-BR").format(date);
 
-export default function ExpenseTable({ expenses }: ExpensesProps) {
+export default function ExpenseTable({expenses}: ExpensesProps) {
 
     return (
         <div>
@@ -40,16 +40,17 @@ export default function ExpenseTable({ expenses }: ExpensesProps) {
                     const formattedDate = `${day}/${month}/${year}`;
 
                     return (
-                    <tr key={exp.id} className="border-b hover:bg-gray-50">
-                        <td className="p-3">{exp.titulo}</td>
-                        <td className="p-3">{exp.descricao}</td>
-                        <td className="p-3">{exp.categoria}</td>
-                        <td className="p-3">{formattedDate}</td>
-                        <td className="p-3 font-semibold text-green-600">
-                            {formatCurrency(exp.valor)}
-                        </td>
-                    </tr>
-                )})}
+                        <tr key={exp.id} className="border-b hover:bg-gray-50">
+                            <td className="p-3">{exp.titulo}</td>
+                            <td className="p-3">{exp.descricao}</td>
+                            <td className="p-3">{exp.categoria}</td>
+                            <td className="p-3">{formattedDate}</td>
+                            <td className="p-3 font-semibold text-green-600">
+                                {formatCurrency(exp.valor)}
+                            </td>
+                        </tr>
+                    )
+                })}
                 </tbody>
             </Table>
         </div>

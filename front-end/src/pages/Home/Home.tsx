@@ -1,4 +1,3 @@
-
 import {FinanceData} from "../../types/FinanceData";
 import ChartCard from "../../components/ChartCard/ChartCard";
 import {ExpenseModel} from "../../types/Expense";
@@ -81,21 +80,21 @@ export default function Home() {
 
     return (
         <div>
-            <Header onDateFilterChange={handleDateFilterChange} />
+            <Header onDateFilterChange={handleDateFilterChange}/>
 
             <div className="container">
                 <div className="row mt-5">
                     <BalanceCardsGrid expenses={filteredExpenses} incomes={filteredIncomes}/>
                 </div>
-                <div className="row mt-5" >
-                    <AddExpenseAndIncomeGrid />
+                <div className="row mt-5">
+                    <AddExpenseAndIncomeGrid/>
                 </div>
                 <div className="row grid mt-5">
                     <div className="col">
-                        <ChartCard expenses={filteredExpenses} incomes={filteredIncomes} />
+                        <ChartCard expenses={filteredExpenses} incomes={filteredIncomes}/>
                     </div>
                     <div className="col">
-                        <ExpenseTableComponent expenses={filteredExpenses} />
+                        <ExpenseTableComponent expenses={filteredExpenses}/>
                     </div>
                 </div>
 

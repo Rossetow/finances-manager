@@ -3,7 +3,7 @@ import formatCurrency from "../../utils/FormatCurrency";
 type IncomeProps = {
     income: number;
 }
-export default function Income({ income }: IncomeProps) {
+export default function Income({income}: IncomeProps) {
 
     return (
         <div className="col cards shadow-sm rounded-4">

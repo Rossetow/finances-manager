@@ -1,9 +1,10 @@
 import formatCurrency from "../../utils/FormatCurrency";
 import "../../styles/Style.css"
+
 type ExpensesProps = {
     expenses: number;
 }
-export default function Expenses({ expenses }: ExpensesProps) {
+export default function Expenses({expenses}: ExpensesProps) {
 
     return (
         <div className="col cards shadow-sm rounded-4">

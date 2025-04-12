@@ -9,14 +9,15 @@ export default function AddExpense() {
 
     const [showModal, setShowModal] = useState(false);
 
-    const handleSave = async(expense: ExpenseModel) => {
+    const handleSave = async (expense: ExpenseModel) => {
         await PostExpense(expense)
         console.log("Nova despesa:", expense);
     };
     return (
-        <div onClick={() => setShowModal(true)} className="cur col cards add-card d-flex flex-row align-items-center shadow-sm rounded-4">
+        <div onClick={() => setShowModal(true)}
+             className="cur col cards add-card d-flex flex-row align-items-center shadow-sm rounded-4">
             <div className="icon-box d-flex justify-content-center align-items-center add-expense me-4">
-                <MinusCircle size={20} color="red" />
+                <MinusCircle size={20} color="red"/>
             </div>
             <div>
                 <h6 className="mb-1 text-dark fw-semibold">Adicionar gastos</h6>

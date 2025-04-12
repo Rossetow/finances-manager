@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import {Link} from "react-router-dom";
 import "./Header.css";
 import DateRangeFilter from "../DateRangeFilter/DateRangeFilter";
 
@@ -6,7 +6,7 @@ type HeaderProps = {
     onDateFilterChange: (filterKey: string) => void;
 };
 
-export default function Header({ onDateFilterChange }: HeaderProps) {
+export default function Header({onDateFilterChange}: HeaderProps) {
 
 
     return (
@@ -16,7 +16,7 @@ export default function Header({ onDateFilterChange }: HeaderProps) {
                     <Link to="/" className="text-blue text-decoration-none">💸 Meu Financeiro</Link>
                 </h1>
                 <nav className="nav">
-                    <DateRangeFilter onSelect={onDateFilterChange} />
+                    <DateRangeFilter onSelect={onDateFilterChange}/>
                 </nav>
             </div>
         </header>

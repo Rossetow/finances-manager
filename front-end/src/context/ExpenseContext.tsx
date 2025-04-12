@@ -1,5 +1,5 @@
 import {createContext, ReactNode, useState} from "react";
-import { ExpenseModel } from "../types/Expense";
+import {ExpenseModel} from "../types/Expense";
 
 type ExpenseContextProps = {
     expenses: ExpenseModel[];
@@ -14,7 +14,7 @@ export const ExpenseContext = createContext<ExpenseContextProps>(
     {} as ExpenseContextProps
 );
 
-export const ExpenseContextProvider = ({ children }: ExpenseProviderProps) => {
+export const ExpenseContextProvider = ({children}: ExpenseProviderProps) => {
 
     const [expenses, setExpensesState] = useState<ExpenseModel[]>([]);
 
