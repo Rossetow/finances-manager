@@ -4,11 +4,7 @@ import {IncomeModel} from "../types/IncomeModel";
 import TotalIncome from "../utils/TotalIncome";
 
 export default function GetFinanceData(expenses: ExpenseModel[], incomes: IncomeModel[]) {
-
-    var categories: string[] = []
-
-    console.log(expenses)
-    console.log(incomes)
+    const categories: string[] = []
 
     expenses.forEach((expense: ExpenseModel | null) => {
         if (!expense) return;
@@ -18,7 +14,7 @@ export default function GetFinanceData(expenses: ExpenseModel[], incomes: Income
         }
     });
 
-    var expenseByCategory: Map<String, number> = new Map()
+    const expenseByCategory: Map<string, number> = new Map()
 
     expenses.forEach((expense: ExpenseModel) => {
         if (!expense) return;
@@ -30,9 +26,8 @@ export default function GetFinanceData(expenses: ExpenseModel[], incomes: Income
         }
     })
 
-    var financeData: FinanceData[] = []
-
-    var totalExpense = 0
+    const financeData: FinanceData[] = []
+    let totalExpense = 0
 
     const budget: number = TotalIncome(incomes)
 
@@ -53,8 +48,5 @@ export default function GetFinanceData(expenses: ExpenseModel[], incomes: Income
             percentage: Math.round((budget - totalExpense) / budget * 100)
         })
     }
-
-    console.log(financeData)
-
     return financeData
 }

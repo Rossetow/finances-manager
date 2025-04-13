@@ -1,8 +1,3 @@
-.container-custom {
-    margin-right: 60px;
-    margin-left: 60px;
-}
-
 .container > div {
     gap: 20px;
 }

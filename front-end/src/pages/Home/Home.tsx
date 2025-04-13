@@ -31,7 +31,7 @@ export default function Home() {
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
-        initData()
+        initData().catch(err => console.log(err));
     }, []);
 
     async function initData() {
@@ -41,13 +41,13 @@ export default function Home() {
         ]);
 
         setAllExpenses(initExpenses);
-        var filteredExpensesInit = FilterExpensesByDate(initExpenses, dateFilter);
+        const filteredExpensesInit = FilterExpensesByDate(initExpenses, dateFilter);
 
         setFilteredExpenses(filteredExpensesInit);
 
         setAllIncomes(initIncomes);
 
-        var filteredIncomesInit = FilterIncomesByDate(initIncomes, dateFilter);
+        const filteredIncomesInit = FilterIncomesByDate(initIncomes, dateFilter);
         setFilteredIncomes(filteredIncomesInit);
 
         setIncomes(initIncomes);

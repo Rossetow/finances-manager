@@ -14,8 +14,6 @@ type BalanceCardsProps = {
 }
 
 export default function BalanceCardsGrid({expenses, incomes}: BalanceCardsProps) {
-    console.log(incomes)
-    console.log(expenses)
     return (
         <div>
             <div className="row justify-content-between grid">

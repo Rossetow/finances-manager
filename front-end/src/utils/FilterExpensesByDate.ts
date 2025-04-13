@@ -1,7 +1,7 @@
 import {ExpenseModel} from "../types/Expense";
 
 export default function FilterExpensesByDate(expenses: ExpenseModel[], days: number) {
-    if (days === 0) return expenses; // sem filtro
+    if (days === 0) return expenses;
     if (expenses.length === 0) return [];
 
     const now = new Date();

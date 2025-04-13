@@ -17,7 +17,9 @@
     "@types/react-dom": "^19.1.2",
     "axios": "^1.8.4",
     "bootstrap": "^5.3.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "lucide-react": "^0.487.0",
+    "prettier": "^3.5.3",
     "rc-table": "^7.50.4",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.9",
@@ -35,13 +37,15 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
+    "lint-src": "eslint src",
+    "lint-src-fix": "eslint src --fix",
+    "format": "prettier . --check",
+    "format-fix": "prettier . --write",
+    "format-src": "prettier src --check",
+    "format-src-fix": "prettier src --write"
   },
   "browserslist": {
     "production": [
@@ -56,6 +60,11 @@
     ]
   },
   "devDependencies": {
-    "@types/react-modal": "^3.16.3"
+    "@eslint/js": "^9.24.0",
+    "@types/react-modal": "^3.16.3",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.0.0",
+    "typescript-eslint": "^8.29.1"
   }
 }
