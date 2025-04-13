@@ -42,6 +42,8 @@ docker-compose up -d --no-cache
 docker-compose down
 ```
 
+O site estará disponível em `localhost:3000`
+
 ## Contato
 
 Rafael Rosseto
