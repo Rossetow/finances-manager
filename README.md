@@ -38,7 +38,7 @@ make stop
 Se não:
 
 ```bash
-docker-compose up -d --no-cache
+docker-compose up -d
 docker-compose down
 ```
 
