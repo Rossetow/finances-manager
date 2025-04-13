@@ -12,6 +12,7 @@ export default function AddExpense() {
     const handleSave = async (expense: ExpenseModel) => {
         await PostExpense(expense)
         console.log("Nova despesa:", expense);
+        window.location.reload();
     };
     return (
         <div onClick={() => setShowModal(true)}

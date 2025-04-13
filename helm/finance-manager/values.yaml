@@ -1,0 +1,15 @@
+backend:
+  image:
+    repository: meuusuario/backend
+    tag: latest
+
+frontend:
+  image:
+    repository: meuusuario/frontend
+    tag: latest
+
+redis:
+  host: redis
+  image:
+    repository: redis
+    tag: latest
