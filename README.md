@@ -38,7 +38,7 @@ make stop
 Se não:
 
 ```bash
-docker-compose up -d
+docker-compose up -d --force-recreate
 docker-compose down
 ```
 
