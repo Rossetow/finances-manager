@@ -12,7 +12,7 @@ Thumbs.db
 # ---------------------------
 # Node.js / React
 # ---------------------------
-node_modules/
+*/node_modules/
 dist/
 build/
 .env
