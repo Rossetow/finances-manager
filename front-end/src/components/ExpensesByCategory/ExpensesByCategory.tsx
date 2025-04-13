@@ -16,10 +16,12 @@ import {
     ShoppingBag,
     Utensils
 } from "lucide-react";
+import ToTitleCase from "../../utils/ToTitleCase";
 
 type DataProps = {
     data: FinanceData[];
 }
+
 export default function ExpensesByCategory({data}: DataProps) {
     return (
         <Table striped bordered hover>
@@ -29,7 +31,7 @@ export default function ExpensesByCategory({data}: DataProps) {
                 <tr key={exp.label}>
                     <td className="d-flex align-items-center">
                         <div> {IconByCategory(exp.label)} </div>
-                        <p>{exp.label}</p>
+                        <p>{ToTitleCase(exp.label)}</p>
                     </td>
                     <td>
                         <p>{formatCurrency(exp.value)}</p>

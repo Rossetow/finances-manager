@@ -2,6 +2,7 @@ import React from "react";
 import {ExpenseModel} from "../../types/Expense";
 import formatCurrency from "../../utils/FormatCurrency";
 import Table from 'react-bootstrap/Table';
+import ToTitleCase from "../../utils/ToTitleCase";
 
 interface ExpensesProps {
     expenses: ExpenseModel[];
@@ -43,7 +44,7 @@ export default function ExpenseTable({expenses}: ExpensesProps) {
                         <tr key={exp.id} className="border-b hover:bg-gray-50">
                             <td className="p-3">{exp.titulo}</td>
                             <td className="p-3">{exp.descricao}</td>
-                            <td className="p-3">{exp.categoria}</td>
+                            <td className="p-3">{ToTitleCase(exp.categoria)}</td>
                             <td className="p-3">{formattedDate}</td>
                             <td className="p-3 font-semibold text-green-600">
                                 {formatCurrency(exp.valor)}

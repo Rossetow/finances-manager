@@ -1,12 +1,12 @@
 import {useState} from "react";
-import {CalendarDays} from "lucide-react"; // ou outro ícone de calendário
-import "./DateRangeFilter.css"; // estilização separada
+import {CalendarDays} from "lucide-react";
+import "./DateRangeFilter.css";
 
 const options = [
-    {label: "This month", value: "this_month"},
-    {label: "Last month", value: "last_month"},
-    {label: "This year", value: "this_year"},
-    {label: "Last 12 months", value: "last_12_months"},
+    {label: "Esse mês", value: "this_month"},
+    {label: "Mês passadp", value: "last_month"},
+    {label: "Esse ano", value: "this_year"},
+    {label: "Últimos 12 meses", value: "last_12_months"},
 ];
 
 type DateRangeFilterProps = {
