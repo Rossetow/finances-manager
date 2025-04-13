@@ -1,0 +1,125 @@
+# ---------------------------
+# Geral
+# ---------------------------
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ---------------------------
+# Node.js / React
+# ---------------------------
+node_modules/
+dist/
+build/
+.env
+.env.local
+.npmrc
+coverage/
+.vscode/
+
+# ---------------------------
+# Java / Spring Boot
+# ---------------------------
+**/target/
+**/out/
+**/.classpath
+**/.project
+**/.settings/
+**/.idea/
+**/*.iml
+*.jar
+*.war
+
+# Arquivos de configuração locais
+**/application-local.properties
+**/application-dev.properties
+
+# ---------------------------
+# Docker
+# ---------------------------
+**/.docker/
+docker-compose.override.yml
+
+# ---------------------------
+# Kubernetes / Helm
+# ---------------------------
+**/helm-chart/.helmignore
+**/helm-chart/charts/
+**/helm-chart/tmp/
+**/helm-chart/Chart.lock
+
+# ---------------------------
+# Sistema operacional
+# ---------------------------
+*.bak
+*.tmp
+*.log
+*.orig
+*.rej
+*.sublime-workspace
+*.sublime-project
+ehthumbs.db
+Desktop.ini
+
+# ---------------------------
+# IntelliJ / Eclipse / VSCode
+# ---------------------------
+.idea/
+*.iml
+*.ipr
+*.iws
+*.bak
+*.tmp
+*.swp
+*.swo
+*.class
+.vscode/
+
+# ---------------------------
+# Test / Coverage
+# ---------------------------
+coverage/
+test-results/
+.jest/
+
+# ---------------------------
+# Outros
+# ---------------------------
+*.sqlite
+*.db
+*.pid
+*.seed
+*.zip
+*.tgz
+*.gz
+*.tar
+
+# Ignore arquivos e diretórios de backups
+*~
+*.bak
+*.old
+
+# ---------------------------
+# Ignore local Helm config
+# ---------------------------
+.helm/
+
+# ---------------------------
+# MacOS
+# ---------------------------
+.DS_Store
+
+# ---------------------------
+# Linux
+# ---------------------------
+*~
+
+# ---------------------------
+# Windows
+# ---------------------------
+Thumbs.db
+ehthumbs.db
