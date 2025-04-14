@@ -4,7 +4,7 @@ import "./DateRangeFilter.css";
 
 const options = [
     {label: "Esse mês", value: "this_month"},
-    {label: "Mês passadp", value: "last_month"},
+    {label: "Mês passado", value: "last_month"},
     {label: "Esse ano", value: "this_year"},
     {label: "Últimos 12 meses", value: "last_12_months"},
 ];
@@ -38,7 +38,7 @@ export default function DateRangeFilter({onSelect}: DateRangeFilterProps) {
             </div>
             <button className="btn btn-outline-secondary d-flex align-items-center">
                 <CalendarDays size={16} className="me-2"/>
-                Select period
+                Selecione período (não funcional)
             </button>
         </div>
     );

@@ -9,8 +9,8 @@ export default function AddExpense() {
     const [showModal, setShowModal] = useState(false);
 
     const handleSave = async (income: IncomeModel) => {
-        console.log("Nova receita:", income);
         await PostIncome(income)
+        console.log("Nova receita:", income);
         window.location.reload();
     };
     return (
